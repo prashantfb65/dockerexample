@@ -56,7 +56,7 @@ Flask Webservice `http://localhost:5000/`
 Django Application `http://localhost:8000/`
 
 
-Jupyter Notebook
+Jupyter Notebook `http://localhost:8888/?token=<copied_token_from_below>`
 ```bash
 notebook_1     | [I 19:23:00.212 NotebookApp] JupyterLab extension loaded from /opt/conda/lib/python3.7/site-packages/jupyterlab
 notebook_1     | [I 19:23:00.212 NotebookApp] JupyterLab application directory is /opt/conda/share/jupyter/lab
@@ -66,9 +66,6 @@ notebook_1     | [I 19:23:00.218 NotebookApp] http://(52447a97d19b or 127.0.0.1)
 notebook_1     | [I 19:23:00.218 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 ```
 
-Copy the token to open the Jupyter Notebook
-e.g.
-http://localhost:8888/?token=`copied token`
 
 http://localhost:8888/?token=3b2c14fa638fe69dde3da18d1d0b0534f62d6d4c09d3eaec
 
