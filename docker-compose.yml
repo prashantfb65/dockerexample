@@ -1,7 +1,25 @@
 version: '3'
 services:
+    notebook:
+      image: jupyter/datascience-notebook
+      volumes:
+        - ${NOTEBOOK_PATH}:/home/jovyan/work
+      ports:
+        - 8888:8888
+    rabbitmq:
+        privileged: true
+        restart: always
+        image: rabbitmq:3.7-rc-management
+        ports:
+        - 24369:4369
+        - 25671:5671
+        - 25672:5672
+        - 45672:15672
+        - 55672:25672
     redis:
         image: redis
+        ports:
+            - 6379:6379
     db:
         privileged: true
         restart: always
@@ -15,6 +33,8 @@ services:
         volumes:
             - ${DB_DATA}:/var/lib/postgresql/data
     web_service:
+        privileged: true
+        restart: always
         build:
             context: ./api_service
             dockerfile: Dockerfile-api
@@ -26,6 +46,8 @@ services:
             - redis
             - db
     web_portal:
+        privileged: true
+        restart: always
         build:
             context: ./web_portal
             dockerfile: Dockerfile-web
@@ -36,3 +58,4 @@ services:
             - ./web_portal:/web_code
         depends_on:
             - db
+            - web_service

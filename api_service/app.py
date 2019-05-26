@@ -8,9 +8,7 @@ redis = Redis(host='redis', port=6379)
 @app.route('/')
 def hello():
     redis.incr('hits')
-    resp_back = f"<hr> \
-        <b> <i> Website visited {redis.get('hits')} time(s) \
-            </i> </b></hr>"
+    resp_back = f"<h1> Innovation Website visited {int(redis.get('hits'))} time(s) </h1>"
     return resp_back
 
 
